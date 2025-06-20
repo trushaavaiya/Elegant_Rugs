@@ -33,7 +33,7 @@ const Splash2 = ({navigation}) => {
         </Text>
 
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Login.js')}>
+          <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Login')}>
             <Text style={styles.loginText}>LOGIN</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.registerButton}>
