@@ -1,10 +1,13 @@
 const Fonts = {
-  regular: 'System',         // default system font
-  bold: 'System',            // or use a custom font like 'Roboto-Bold'
+  regular: 'System',         
+  bold: 'System',            
   size: {
     small: 14,
+    small2:16,
     medium: 18,
     large: 24,
+    xsmall: 12,              
+    xlarge: 28 ,
   },
 };
 
