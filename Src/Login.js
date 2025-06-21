@@ -50,6 +50,7 @@ const LoginScreen = ({navigation}) => {
             style={styles.input}
             secureTextEntry={!passwordVisible}
             defaultValue='968555'
+            maxLength={6}
           />
           <TouchableOpacity
             style={styles.eyeIcon}
