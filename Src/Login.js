@@ -13,7 +13,7 @@ import Colors from './constants/colors';
 import Fonts from './constants/fonts';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   return (
@@ -49,20 +49,21 @@ const LoginScreen = () => {
             placeholderTextColor={Colors.textGrey}
             style={styles.input}
             secureTextEntry={!passwordVisible}
+            defaultValue='968555'
           />
           <TouchableOpacity
             style={styles.eyeIcon}
             onPress={() => setPasswordVisible(!passwordVisible)}
           >
             <Icon
-              name={passwordVisible ? 'eye-off-outline' : 'eye-outline'}
+              name={passwordVisible ?   'eye-outline' : 'eye-off-outline'}
               size={20}
               color={Colors.textGrey}
             />
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styles.forgotWrapper}>
+        <TouchableOpacity style={styles.forgotWrapper} onPress={()=>navigation.navigate('ForgotPassword')}>
           <Text style={styles.forgot}>Forgot Password?</Text>
         </TouchableOpacity>
 

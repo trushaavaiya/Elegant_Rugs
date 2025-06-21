@@ -1,6 +1,6 @@
 const Fonts = {
-  regular: 'System',         
-  bold: 'System',            
+  regular: 'Montserrat-Regular',         
+  bold: 'PlayfairDisplay-Bold' ,           
   size: {
     small: 14,
     small2:16,
