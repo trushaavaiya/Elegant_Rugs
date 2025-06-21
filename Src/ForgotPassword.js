@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
   TextInput,
-  StyleSheet,
   TouchableOpacity,
+  StyleSheet,
   SafeAreaView,
   StatusBar,
   Platform,
@@ -12,18 +12,18 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import Colors from './constants/colors';
 import Fonts from './constants/fonts';
-import LinearGradient from 'react-native-linear-gradient'; 
+import LinearGradient from 'react-native-linear-gradient';
 
-const ForgotPassword = ({navigation}) => {
+const ForgotPassword = ({ navigation }) => {
+  const [mobile, setMobile] = useState('');
+
+  const isValid = mobile.length === 10;
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
 
-      
-      <LinearGradient
-        colors={Colors.gradientBlack}
-        style={styles.header}
-      >
+      <LinearGradient colors={Colors.gradientBlack} style={styles.header}>
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>
           <Icon name="arrow-back" size={24} color={Colors.white} />
         </TouchableOpacity>
@@ -32,7 +32,7 @@ const ForgotPassword = ({navigation}) => {
       <View style={styles.content}>
         <Text style={styles.title}>FORGOT PASSWORD</Text>
         <Text style={styles.subtitle}>
-          Don’t Worry, Please to enter your mobile{'\n'}number
+          Don’t Worry, Please enter your mobile{'\n'}number
         </Text>
 
         <Text style={styles.label}>Mobile Number</Text>
@@ -40,12 +40,19 @@ const ForgotPassword = ({navigation}) => {
           <TextInput
             style={styles.input}
             keyboardType="phone-pad"
-            placeholder="+91 - 6549874665"
+            placeholder="+91 6351921313"
             placeholderTextColor={Colors.textGrey}
+            maxLength={10}
+            value={mobile}
+            onChangeText={setMobile}
           />
         </View>
 
-        <TouchableOpacity style={styles.submitButton}>
+        <TouchableOpacity
+          style={[styles.submitButton, { opacity: isValid ? 1 : 0.5 }]}
+          disabled={!isValid}
+          onPress={() => navigation.navigate('Newpassword', { mobile })}
+        >
           <Text style={styles.submitText}>SUBMIT</Text>
         </TouchableOpacity>
       </View>
@@ -54,10 +61,7 @@ const ForgotPassword = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.white,
-  },
+  container: { flex: 1, backgroundColor: Colors.white },
   header: {
     paddingTop: Platform.OS === 'android' ? 40 : 60,
     paddingHorizontal: 16,
