@@ -1,0 +1,35 @@
+import React from 'react';
+import { StatusBar, useColorScheme } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import Splash from './Src/Splash'; 
+import Splash2 from './Src/Splash2';
+import Login from './Src/Login';
+import ForgotPassword from './Src/ForgotPassword';
+import NewPasswordScreen from './Src/NewPassword';
+import ResetPasswordScreen from './Src/ResetPasswordScreen';
+import SignupPage from './Src/SignupPage';
+
+const Stack = createNativeStackNavigator();
+
+function App() {
+  const isDarkMode = useColorScheme() === 'dark';
+
+  return (
+    <NavigationContainer>
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Splash" component={Splash} />
+        <Stack.Screen name="Splash2" component={Splash2} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+        <Stack.Screen name="Newpassword" component={NewPasswordScreen} />
+        <Stack.Screen name="ResetPasswordScreen" component={ResetPasswordScreen} />
+        <Stack.Screen name="SignupPage" component={SignupPage} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
