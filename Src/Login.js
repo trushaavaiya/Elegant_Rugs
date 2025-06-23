@@ -85,7 +85,7 @@ const LoginScreen = ({navigation}) => {
 
         <Text style={styles.registerText}>
           Don’t have an account?{' '}
-          <Text style={styles.registerLink}>Register</Text>
+          <Text style={styles.registerLink} onPress={()=>navigation.navigate('SignupPage')}>Register</Text>
         </Text>
       </View>
     </SafeAreaView>
