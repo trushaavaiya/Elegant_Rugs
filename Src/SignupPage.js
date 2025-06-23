@@ -13,7 +13,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Colors from './constants/colors';
 import Fonts from './constants/fonts';
 
-const SignupPage = () => {
+const SignupPage = ({navigation}) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
@@ -21,7 +21,7 @@ const SignupPage = () => {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.container}>
         <Image
-          source={require('./assets/carpet.webp')} // Replace with your image
+          source={require('./assets/carpet.webp')}
           style={styles.topImage}
         />
 
@@ -73,7 +73,7 @@ const SignupPage = () => {
                 onPress={() => setPasswordVisible(!passwordVisible)}
               >
                 <Icon
-                  name={passwordVisible ? 'eye-off' : 'eye'}
+                  name={passwordVisible ?  'eye' :'eye-off'}
                   size={20}
                   color={Colors.grey}
                 />
@@ -96,7 +96,7 @@ const SignupPage = () => {
                 }
               >
                 <Icon
-                  name={confirmPasswordVisible ? 'eye-off' : 'eye'}
+                  name={confirmPasswordVisible ? 'eye' : 'eye-off' }
                   size={20}
                   color={Colors.grey}
                 />
@@ -109,7 +109,7 @@ const SignupPage = () => {
           </TouchableOpacity>
 
           <Text style={styles.loginText}>
-            Already have an account <Text style={styles.loginLink}>Login</Text>
+            Already have an account ?<Text style={styles.loginLink} onPress={() => navigation.navigate('SignupPage')}>Login</Text>
           </Text>
         </View>
       </ScrollView>
@@ -127,16 +127,21 @@ const styles = StyleSheet.create({
   container: {
     paddingBottom: 20,
     backgroundColor: Colors.white,
+    
   },
   topImage: {
     width: '100%',
     height: 180,
-    borderBottomLeftRadius: 30,
-    borderBottomRightRadius: 30,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
     resizeMode: 'cover',
   },
   formContainer: {
     padding: 20,
+     borderTopLeftRadius: 30,
+  borderTopRightRadius: 30,
+  backgroundColor: Colors.white, 
+  marginTop: -30,
   },
   helloText: {
     fontSize: Fonts.size.medium,
