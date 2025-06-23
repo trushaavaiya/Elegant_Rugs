@@ -62,7 +62,7 @@ const NewPasswordScreen = ({ route, navigation }) => {
           ))}
         </View>
 
-        <TouchableOpacity style={styles.submitButton}>
+        <TouchableOpacity style={styles.submitButton} onPress={() => navigation.navigate('ResetPasswordScreen')}>
           <Text style={styles.submitText}>RESET PASSWORD</Text>
         </TouchableOpacity>
 
