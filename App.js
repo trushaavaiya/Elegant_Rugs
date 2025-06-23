@@ -8,6 +8,8 @@ import Splash2 from './Src/Splash2';
 import Login from './Src/Login';
 import ForgotPassword from './Src/ForgotPassword';
 import NewPasswordScreen from './Src/NewPassword';
+import ResetPasswordScreen from './Src/ResetPasswordScreen';
+import SignupPage from './Src/SignupPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +25,8 @@ function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
         <Stack.Screen name="Newpassword" component={NewPasswordScreen} />
+        <Stack.Screen name="ResetPasswordScreen" component={ResetPasswordScreen} />
+        <Stack.Screen name="SignupPage" component={SignupPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
